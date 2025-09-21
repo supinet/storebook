@@ -1,15 +1,31 @@
-import "./styles.css";
+import styled from "styled-components";
+
+const MenuContainer = styled.ul`
+  display: flex; /* Horizontal layout */
+`;
+
+const MenuItem = styled.li`
+  font-size: 16px;
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  text-align: center; /* Center text horizontally */
+  height: 100%; /* Full height of the parent */
+  padding: 0 5px; /* Horizontal padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  min-width: 120px; /* Minimum width for each menu option */
+`;
 
 const menuItems = ["CATEGORIES", "MY LIB", "FAVORITE", "ABOUT"];
 
 export default function HeaderOptions() {
   return (
-    <ul className="menu-list">
+    <MenuContainer>
       {menuItems.map((item) => (
-        <li className="menu-item">
+        <MenuItem key={item}>
           <p>{item}</p>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuContainer>
   );
 }
