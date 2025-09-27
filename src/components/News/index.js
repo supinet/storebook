@@ -1,6 +1,8 @@
 import { books } from "./NewsData";
 import styled from "styled-components";
 import { Title } from "../BooksTitle";
+import BookCardIndication from "../BookCardIndication";
+import bookImg from "../../images/livro2.png";
 
 const NewsContainer = styled.section`
   background-color: #ebecee;
@@ -28,6 +30,18 @@ export default function News() {
           <img src={book.src} alt={book.name} key={book.id} />
         ))}
       </NewNewsContainer>
+      <BookCardIndication
+        title="Maybe you will like this"
+        subtitle="Angular 11"
+        description="Learn about angular 11 components, templates, and more."
+        img={bookImg} alt="angular 11"
+      />
+       <BookCardIndication
+        title="Maybe you will like this"
+        subtitle="NodeJS"
+        description="Learn about NodeJS components, templates, and more."
+        img={bookImg} alt="nodeJs"
+      />
     </NewsContainer>
   );
 }
