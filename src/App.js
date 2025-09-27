@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import styled from "styled-components";
 import Search from "./components/Search";
+import News from "./components/News";
 
 const AppContainer = styled.div`
   width: 100vw; /* Full viewport width */
@@ -13,6 +14,7 @@ function App() {
     <AppContainer>
       <Header />
       <Search />
+      <News />
     </AppContainer>
   );
 }
