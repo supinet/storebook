@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MenuContainer = styled.ul`
   display: flex; /* Horizontal layout */
@@ -16,14 +17,16 @@ const MenuItem = styled.li`
   min-width: 120px; /* Minimum width for each menu option */
 `;
 
-const menuItems = ["CATEGORIES", "MY LIB", "FAVORITE", "ABOUT"];
+const menuItems = ["CATEGORIES", "LIB", "FAVORITES", "ABOUT"];
 
 export default function HeaderOptions() {
   return (
     <MenuContainer>
       {menuItems.map((item) => (
         <MenuItem key={item}>
-          <p>{item}</p>
+          <Link to={`/${item.toLowerCase()}`}>
+            <p>{item}</p>
+          </Link>
         </MenuItem>
       ))}
     </MenuContainer>
