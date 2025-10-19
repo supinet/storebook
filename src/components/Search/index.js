@@ -1,7 +1,7 @@
 import Input from "../Input";
 import styled from "styled-components";
-import { useState } from "react";
-import { books } from "./searchData";
+import { useEffect, useState } from "react";
+import { getAllBooks } from "../../services/livros";
 
 const SearchContainer = styled.section`
   background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -44,6 +44,17 @@ const Result = styled.div`
 
 export default function Search() {
   const [searchedBooks, setSearchedBooks] = useState([]);
+  const [books, setBooks] = useState([]);
+
+  //get books before page load
+  useEffect(() => {
+    fetchAllBooks();
+  }, []);
+
+  async function fetchAllBooks() {
+    const booksResult = await getAllBooks();
+    setBooks(booksResult);
+  }
 
   return (
     <SearchContainer>
